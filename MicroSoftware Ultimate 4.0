@@ -1,0 +1,360 @@
+if not "%minimized%"=="" goto :minimized
+set minimized=true
+start /min cmd /C "%~dpnx0"
+goto :EOF
+:minimized
+@echo off
+cls
+
+
+
+>nul 2>&1 "%systemroot%\system32\cacls.exe" "%systemroot%\system32\config\system"
+If '%errorlevel%' neq '0' (Goto uacprompt) else (goto gotadmin)
+:uacprompt
+Echo set uac = createobject^("shell.application"^) > "%temp%\getadmin.vbs"
+Echo uac.shellexecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+"%temp%\getadmin.vbs"
+Exit /b
+:gotadmin
+If exist "%temp%\getadmin.vbs" (del "%temp%\getadmin.vbs")
+
+
+
+
+
+set folder="c:\windows\system32\StexupMenuUtility\"
+
+set backmenu=Premi un tasto per tornare al menu!
+
+
+
+cd\
+md %folder% 2>nul
+cd %folder%
+
+
+
+
+
+if exist color.txt (
+set /p colore=<color.txt
+) else (
+set colore=0a
+)
+
+
+
+powershell Start-Sleep -milliseconds 200
+PowerShell.exe -window normal -command mode 120,30
+
+@echo off
+cls
+powershell sleep 0.5
+cls
+title MicroSoftware Ultimate 4.0 
+goto main
+
+:main
+cls
+rem Main
+color 09
+echo.
+echo. ----------------------------------------------------------------------------------------------------------------------
+echo.
+echo.
+echo.
+echo.					------------------------------
+echo.					[ MicroSoftware Ultimate 4.0 ]
+echo.					------------------------------
+echo.
+echo.
+echo.
+echo.		1. [ start ]								2. [ exit ]
+echo.
+echo.
+echo.		3. [ Info Software ]							4. [ Software Support ]
+echo.
+echo.
+echo.
+echo.						----------
+echo.						Powered
+echo.						    By
+echo.						Runkang
+echo.						----------
+echo.
+echo.
+echo. ----------------------------------------------------------------------------------------------------------------------
+echo.
+choice /c 1234 /m "Please select: "
+if %errorlevel%== 1 goto start
+if %errorlevel%== 2 goto exit
+if %errorlevel%== 3 goto infos
+if %errorlevel%== 4 goto softsupp
+:start
+rem Start Page
+timeout /t 1 /nobreak > NUL
+color 8f
+cls
+echo.
+echo.	********************************************************************************************************
+echo.
+echo.		--------------		----------------		----------------------
+echo.		1.[ Turn Off ]		2.[ Restart PC ]		3.[ Advanced Restart ]
+echo.		--------------		----------------		----------------------
+echo.
+echo.	********************************************************************************************************
+echo.
+echo.		--------------		--------------------		-------------
+echo.		4.[ PC TOOLS ]		5.[ ADVANCED TOOLS ]		6.[ PC INFO ]
+echo.		--------------		--------------------		-------------
+echo.
+echo.	********************************************************************************************************
+ECHO.
+ECHO.						
+ECHO.						7.Exit
+ECHO.						
+ECHO.
+echo.	********************************************************************************************************
+echo.
+echo.
+choice /c 123456789 /m "Please Select: "
+if %errorlevel%== 1 goto start1
+if %errorlevel%== 2 goto start2
+if %errorlevel%== 3 goto start3
+if %errorlevel%== 4 goto start4
+if %errorlevel%== 5 goto start5
+if %errorlevel%== 6 goto start6
+if %errorlevel%== 7 goto start7
+:start1
+cls
+slidetoshutdown
+goto start
+:start2
+cls
+shutdown -r -t 3 -c "Restarting Your PC ... "
+goto start
+:start3
+cls
+shutdown -r -o -t 4 -c " Please Waiting... "
+goto start
+:start4
+cls
+timeout /t 1 /nobreak > NUL
+echo.
+echo. ----------------------------------------------------------------------------------------------------------------------
+echo.
+echo.						[ MicroSoftware: PCTOOLS ]
+echo.
+echo.
+echo.	1.[ TaskManager ]		2.[ CleanDisk Tools ]			3.[ PCManager ]
+echo.
+echo.
+echo.  *********************************************************************************************************************
+echo.
+echo.	4.[ MRT ]			5.[ ScanDisk Tools ]			6.[ Control Panel ]
+echo.
+echo. **********************************************************************************************************************
+echo.
+echo.				7. [ ADVANCED ]		E.[ Exit ]
+echo.
+echo. ----------------------------------------------------------------------------------------------------------------------
+choice /c 1234567E /m "Please Select To Continue: "
+if %errorlevel%== 1 goto start11
+if %errorlevel%== 2 goto start12
+if %errorlevel%== 3 goto start13
+if %errorlevel%== 4 goto start14
+if %errorlevel%== 5 goto start15
+if %errorlevel%== 6 goto start16
+if %errorlevel%== 7 goto start5
+if %errorlevel%== E goto start
+:start11
+cls
+taskmgr
+goto start4
+:start12
+cls
+cleanmgr
+goto start4
+:start13
+cls
+compmgmt.msc
+goto start4
+:start14
+cls
+mrt
+goto start4
+:start15
+chkdsk /f
+goto start 4
+:start16
+cls
+control panel
+goto start4
+
+:start5
+cls
+echo. ......................................................................................................................
+echo.
+echo.	1.[ TaskKiller ]		2.[ TaskList ]			3.[ PcExplorer ]
+echo.
+echo.
+echo.	4.[ TemporaryFile Cleaner ]	5.[ PC information ]			6.[ Services Manager PC ]
+echo.
+echo.
+echo.	7.[ DiskManager ]		8.[  ]
+echo.
+echo.
+echo.
+echo. ......................................................................................................................
+echo.
+echo.
+choice /c 123456 /m "Please Select To Continue: "
+if %errorlevel%== 1 goto start51
+if %errorlevel%== 2 goto start52
+if %errorlevel%== 3 goto start53
+if %errorlevel%== 4 goto start54
+if %errorlevel%== 5 goto start55
+if %errorlevel%== 6 goto start56
+if %errorlevel%== 7 goto start57
+:start51
+cls
+color 3
+echo.
+echo. ......................................................................................................................
+echo.
+echo.						Welcome To TaskKiller
+echo.
+echo.
+echo.	
+echo.
+echo.
+echo.
+echo ......................................................................................................................
+set /p task= Please Write Software Name    ( example: "cmd.exe, chrome.exe, explorer.exe..." ) : 
+if %task%== goto ver
+:ver
+cls
+echo.
+echo	
+echo.
+set /p ver= You Are Sure ???   ( Y / N )
+if %ver%== Y goto red
+if %ver%== y goto red
+if %ver%== N goto blue
+if %ver%== n goto blue
+:red
+cls
+:blue
+cls
+
+:start52
+cls
+tasklist
+pause
+goto start5
+:start53
+cls
+explorer.exe
+goto start5
+:start54
+cls
+echo Please Waiting...
+timeout /t 3 /nobreak > NUL
+rmdir /q /s %temp%
+cls
+rmdir /q /s C:\windows\temp
+cls
+rmdir /q /s C:\windows\prefetch
+cls
+rmdir /q /s C:\windows\SoftwareDistribution\Download
+cls
+echo Completed Succefull
+pause
+goto start5
+
+:start55
+cls
+dxdiag
+goto start5
+
+:start56
+cls
+services.msc
+goto start5
+:start57
+
+
+:start6
+cls
+echo.
+echo.
+echo Please Waiting...
+echo.
+echo.
+systeminfo
+echo.
+echo.
+pause
+goto start
+:start7
+cls
+goto main
+
+
+:infos
+cls
+timeout /t 1 /nobreak > NUL
+color a0
+echo.
+echo.		-------------------------------------------------------------------------------
+echo.
+echo.					MicroSoftware Ultimate 4.0  Info:
+echo.
+echo.
+echo.		Time: %time%
+echo.
+echo.		Date: %date%
+echo.
+echo.
+echo.
+echo.			Software Version: [ "Ultimate 4.0" ]
+echo.
+echo.			Software ID: [ " %random%-%random%-%random%-%random% " ]
+echo.
+echo.     			Software Owner: " Runkang "
+echo.
+echo.			Software WebSite: " https://sites.google.com/view/microsoftware/home "
+echo.
+echo.			Software Date To Release: ( " 20/03/2023 " )
+echo.
+echo.			Email For Support: " club.leggendario@gmail.com "
+echo.
+echo.
+echo.
+echo.		-------------------------------------------------------------------------------
+echo.
+pause
+goto start
+
+:exit
+cls
+echo.
+echo.
+set /p ex=You Are Sure To Exit ???  ( Y/N )
+if %ex%==Y goto yes
+if %ex%==N goto no
+if %ex%==y goto yes
+if %ex%==n goto no
+:yes
+cls
+del MSU-Log.txt
+cls
+exit
+:no
+cls
+goto main
+
+:softsupp
+cls
+start https://sites.google.com/view/microsoftware365/source/support
+goto main
