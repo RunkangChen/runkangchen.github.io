@@ -19,3 +19,20 @@
     align-items: center;
     
   } 
+ul {
+  list-style-type: none;
+  background-color: #f1f1f1;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
