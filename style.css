@@ -1,0 +1,21 @@
+.main {
+  background-color: azure;
+}
+
+.fo {
+    text-align: center;
+    font-family: lato;
+    color: red;
+  } 
+  
+  .iu {
+    font: bold;
+    position: relative;
+    top: 25px;
+  } 
+  
+  .gf {
+    position: absolute;
+    align-items: center;
+    
+  } 
