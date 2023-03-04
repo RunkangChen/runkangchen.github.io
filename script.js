@@ -1,4 +1,4 @@
-const redirectUrl = "https://www.example.com";
+const redirectUrl = ".\check\4.55.1\update\check.html";
 const delayInSeconds = 5;
 
 setTimeout(() => {
