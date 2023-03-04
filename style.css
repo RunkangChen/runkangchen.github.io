@@ -1,39 +1,33 @@
-.main {
-  background-color: azure;
-}
-
-.fo {
-    text-align: center;
-    font-family: Ubuntu;
-    color: red;
-  
-  } 
-  
-  .iu {
-    font: bold;
-    position: relative;
-    top: 25px;
-  } 
-  
-  .gf {
-    position: absolute;
-    align-items: center;
-    
-  } 
-ul {
-  list-style-type: none;
-  background-color: #f1f1f1;
+body {
+  margin: 0;
   padding: 0;
 }
 
-li {
-  display: inline-block;
-  margin-right: 10px;
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
 }
 
-a {
-  display: block;
-  padding: 10px;
-  color: #333;
-  text-decoration: none;
+.loader {
+  border: 8px solid #ddd;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+.loader-text {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
