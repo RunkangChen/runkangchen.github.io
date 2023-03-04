@@ -1,15 +1,54 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Loading</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="loading-screen">
-      <div class="loader"></div>
-      <div class="loader-text">LOADING...</div>
+<div class="loading">
+    <div class="loading-text">
+      <h2>Loading...</h2>
+      <div class="loading-bar"></div>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+  </div>
+<style>
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .loading-text {
+        text-align: center;
+        color: #000;
+      }
+      
+      .loading-bar {
+        width: 0%;
+        height: 5px;
+        background-color: #000;
+        margin-top: 10px;
+        animation: loading 2s ease-in-out infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          width: 0%;
+        }
+        50% {
+          width: 50%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+</style>  
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+          window.location.href = "go.html";
+        }, 5555); // Tempo di attesa in millisecondi prima del reindirizzamento
+      };
+</script>
 </html>
